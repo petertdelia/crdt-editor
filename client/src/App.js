@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useRef } from "react";
+import Editor from "@monaco-editor/react";
+import { MonacoBinding } from 'y-monaco';
+import { FileUploader } from './components/Uppy.js';
 
 function App() {
+  const editorRef = useRef(null);
+
+  function handleEditorDidMount(editor, monaco) {
+    // here is the editor instance
+    // you can store it in `useRef` for further usage
+    editorRef.current = editor; 
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Editor
+      height="90vh"
+      defaultLanguage="javascript"
+      defaultValue="// some comment"
+      onMount={handleEditorDidMount}
+    />
+    <FileUploader />
+    </>
   );
 }
 
