@@ -61,6 +61,3 @@ Libraries:
 - backend server for uploading/saving to db
 - frontend UI updates
 - user authentication
-
-## Note on time spent
-- I was able to spend part of a day on this project, maybe 4 hours total. I would like to spend more time in the future on the implementation to get it working.
